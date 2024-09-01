@@ -31,6 +31,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   pokemon_project:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    # Config indicated by + and applies to all files under a folder
+
+    base: 
       +materialized: view
+      +schema: base
+    mart: 
+      +materialized: view
+      +schema: mart

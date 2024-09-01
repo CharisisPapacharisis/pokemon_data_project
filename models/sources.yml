@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+    - name: pokemon
+      description: raw data from Satoshi Tajiri 
+      database: mytestdb
+      schema: raw
+      tables:
+
+          - name: raw_pokemon_data
+            description: Raw pokemon data
+            columns:
+              - name: pokemon_id
+                description: numeric identifier
+                tests:
+                  - not_null
+              - name: name
+                description: name of pokemon
+                tests:
+                  - not_null
+              - name: type_1
+                description: pokemon type
+                tests:
+                  - not_null
+              - name: type_2
+                description: pokemon type
+              - name: total
+                description: sum of pokemon attributes
+              - name: hp
+                description: strength indicator
+              - name: attack
+                description: attack ability                                     
+              - name: defence
+                description: defence ability
+              - name: sp_atk
+                description: special attack, in no physical form                
+              - name: sp_def
+                description: special defence, in no physical form      
+              - name: speed
+                description: movement speed  
+              - name: generation
+                description: which pokemon generation it belongs to 
+              - name: legendary
+                description: shows if the pokemon belongs in the legendary category

@@ -5,7 +5,8 @@ select
     generation, 
     speed,
     rank() over (partition by generation order by speed desc) AS rank
-from {{ ref('pokemon_base') }}
+from {{ ref('stage__pokemon') }}
+where type_1 = 'Ice' or type_2 = 'Ice'
 )
 
 select 

@@ -32,7 +32,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   pokemon_project:
     # Config indicated by + and applies to all files under a folder
-
+    
+    stage: 
+      +materialized: view
+      +schema: stage
     base: 
       +materialized: view
       +schema: base

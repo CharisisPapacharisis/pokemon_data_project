@@ -42,3 +42,5 @@ sources:
                 description: which pokemon generation it belongs to 
               - name: legendary
                 description: shows if the pokemon belongs in the legendary category
+          - name: raw_gender_data
+            description: Data on the gender of pokemon, in json format, from the PokeAPI            

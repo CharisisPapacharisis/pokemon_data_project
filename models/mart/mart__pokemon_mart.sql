@@ -12,4 +12,4 @@ select
     speed,
     generation,
     legendary
-from {{ ref('pokemon_base') }}
+from {{ ref('stage__pokemon') }}

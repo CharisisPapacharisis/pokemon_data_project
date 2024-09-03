@@ -6,7 +6,7 @@ select
     total, 
     attack,
     defence
-from {{ ref('pokemon_base') }}
+from {{ ref('stage__pokemon') }}
 ),
 
 type_2_totals as ( 
@@ -17,7 +17,7 @@ select
     total, 
     attack,
     defence
-from {{ ref('pokemon_base') }}
+from {{ ref('stage__pokemon') }}
 ),
 
 unioned as 
@@ -56,7 +56,7 @@ select
     type,
     avg(attack)::number(10,1) AS avg_attack
 from 
-    ranked_totals_per_type
+    top_totals_selection
 group by
     type
 ),
@@ -66,7 +66,7 @@ select
     type,
     avg(defence)::number(10,1) AS avg_defence
 from 
-    ranked_totals_per_type
+    top_totals_selection
 group by 
     type
 )

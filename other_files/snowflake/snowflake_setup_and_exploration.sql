@@ -78,7 +78,7 @@ having c> 1
 order by pokemon_id asc;
 
 
---show those rows in full
+--show those rows that includes duplicate pokemon_ids, in full
 with dups as (
 select pokemon_id, count(*) as c from raw.raw_pokemon_data
 group by 1 
@@ -93,8 +93,8 @@ order by pokemon_id asc;
 select count(*) from raw.raw_pokemon_data; --830
 
 
---check rows that contain Mega pokemon, and create update name
-select name ,SUBSTRING(name, POSITION('Mega' IN name)) AS updated_name
+--check rows that contain Mega pokemon, and create "updated_name" column
+select name ,substring(name, position('Mega' IN name)) AS updated_name
 from raw.raw_pokemon_data
 where contains(name,'Mega');
 
@@ -102,9 +102,9 @@ where contains(name,'Mega');
 --query semi-structured data and nested fields
 SELECT
 v:id as gender_id,
-initcap(REPLACE(v:name, '"', '')) as gender_type, --remove double quotes
-initcap(REPLACE(value:pokemon_species:name, '"', '')) as pokemon_name,
-REVERSE(SPLIT_PART(REVERSE(REPLACE(value:pokemon_species:url, '"', '')), '/', 2)) AS pokemon_id
+initcap(replace(v:name, '"', '')) as gender_type, --remove double quotes
+initcap(replace(value:pokemon_species:name, '"', '')) as pokemon_name,
+reverse(split_part(reverse(replace(value:pokemon_species:url, '"', '')), '/', 2)) AS pokemon_id
 FROM
 raw.raw_gender_data, lateral flatten(input => v:pokemon_species_details);
 

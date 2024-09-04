@@ -3,7 +3,7 @@ select
     name,
     pokemon_id,
     hp,
-    rank() over(order BY hp desc) AS rank_number
+    rank() over(order by hp desc) as rank_number
 from {{ ref('stage__pokemon') }}
 where contains(name, 'Mega')
 )

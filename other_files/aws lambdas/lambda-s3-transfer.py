@@ -37,4 +37,4 @@ def lambda_handler(event, context):
             print("Source bucket is empty. No files to copy.")
 
     except:
-      print("An exception occurred")
+      print("An exception occurred.")

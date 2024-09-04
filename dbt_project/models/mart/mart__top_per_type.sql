@@ -36,7 +36,7 @@ select
     pokemon_id,
     total, 
     row_number() over (partition by type order by total desc) AS row_number,
-    rank() over (partition by type order BY total desc) AS rank_number,
+    rank() over (partition by type order by total desc) AS rank_number,
     attack,
     defence
 from unioned
@@ -51,7 +51,7 @@ row_number <= 10
 OR (rank_number <= 10 AND row_number > 10)
 ),
 
-average_attack_per_type AS (
+average_attack_per_type as (
 select 
     type,
     avg(attack)::number(10,1) AS avg_attack
@@ -61,7 +61,7 @@ group by
     type
 ),
 
-average_defence_per_type AS (
+average_defence_per_type as (
 select 
     type,
     avg(defence)::number(10,1) AS avg_defence

@@ -37,4 +37,4 @@ def lambda_handler(event, context):
     
         
         else:
-            print("Faled to get data")    
+            print("Failed to get data")    

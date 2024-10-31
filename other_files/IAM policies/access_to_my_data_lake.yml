@@ -10,7 +10,7 @@
 				"s3:DeleteObject",
 				"s3:DeleteObjectVersion"
 			],
-			"Resource": "arn:aws:s3:::charisis-data-lake/*"
+			"Resource": "arn:aws:s3:::my-data-lake/*"
 		},
 		{
 			"Effect": "Allow",
@@ -18,7 +18,7 @@
 				"s3:ListBucket",
 				"s3:GetBucketLocation"
 			],
-			"Resource": "arn:aws:s3:::charisis-data-lake"
+			"Resource": "arn:aws:s3:::my-data-lake"
 		}
 	]
 }

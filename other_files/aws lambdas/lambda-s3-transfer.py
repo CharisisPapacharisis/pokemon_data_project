@@ -4,9 +4,9 @@ def lambda_handler(event, context):
 
     s3 = boto3.client('s3')
 
-    source_bucket = 'charisis-sftp-bucket'
+    source_bucket = 'my-sftp-bucket'
     
-    destination_bucket = 'charisis-data-lake'
+    destination_bucket = 'my-data-lake'
     destination_prefix = 'manual_files/'  
 
     try:

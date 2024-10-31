@@ -28,7 +28,7 @@ def lambda_handler(event, context):
             result_json = json.dumps(data)
             print("result_json :", result_json)
         
-            bucket_name = "charisis-data-lake" 
+            bucket_name = "my-data-lake" 
             filename = f"api_data/{key}.json"
         
             s3.put_object(Bucket=bucket_name, Key=filename, Body=result_json)
